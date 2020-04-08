@@ -15,5 +15,8 @@ echo "Logname: $LOGNAME"
 echo "-------------"
 echo "Lang: $LANG"
 echo "-------------"
-ARRAY=$(cut -d : -f 1 /etc/passwd)
+
+#usando o comando cut para prgar os usuarios e o comando sed para coloca o pipe no lugar do espaço
+ARRAY=$(cut -d : -f 1 /etc/passwd | sed "s, ,_,g;s/$/|/")
+echo "Todos os usuarios do linux:"
 echo $ARRAY
